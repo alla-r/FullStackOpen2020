@@ -4,7 +4,12 @@ import ReactDOM from 'react-dom';
 const Button = ({ handleClick, text }) => <button onClick={handleClick}>{text}</button>
 
 const Statistic = ({text, value, unit}) => {
-return <div>{text} {value} {unit}</div>
+return (
+  <tr>
+    <td>{text}</td> 
+    <td>{value}{unit}</td>
+  </tr>
+  )
 }
 
 const Statistics = ({good, neutral, bad}) => {
@@ -15,12 +20,16 @@ const Statistics = ({good, neutral, bad}) => {
     return (
       <div>
         <h2>statistics</h2>
-        <Statistic text='good' value={good} />
-        <Statistic text='neutral' value={neutral} />
-        <Statistic text='bad' value={bad} />
-        <Statistic text='all' value={all} />
-        <Statistic text='average' value={average} />
-        <Statistic text='positive' value={positive} unit='%' />
+        <table>
+          <tbody>
+          <Statistic text='good' value={good} />
+          <Statistic text='neutral' value={neutral} />
+          <Statistic text='bad' value={bad} />
+          <Statistic text='all' value={all} />
+          <Statistic text='average' value={average} />
+          <Statistic text='positive' value={positive} unit='%' />
+          </tbody>
+        </table>
       </div>
     )
   }
